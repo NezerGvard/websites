@@ -1,0 +1,21 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% block title %}Авторизация{% endblock %}
+{% block content %}
+
+
+    
+
+<div class="authorization">
+  <div class="authorization_child">
+      <h1 style="text-align: center">Войти</h1>
+      <form method="post" class="authorization_form">
+          {% csrf_token %}
+          {{ form.username }}
+          {{ form.password }}
+          <button type="submit" class="submit">Войти</button>
+      </form>
+      <p class="authorization_url"><a href="/register">Зарегистрироваться</a></p>
+    </div>
+</div>
+{% endblock content %}

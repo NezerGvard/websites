@@ -1,0 +1,30 @@
+{% extends "shop/base.html" %}
+    {% load static %}
+    {% block title %} Главная {% endblock %}
+        {% block content %}
+        <div class="slider">
+            
+            <div class="slider_block">
+                <img src="/media/demo/kryto1.webp" class="slider_img" id="slider__0" loading="lazy" decoding="async">
+                <img src="/media/demo/kryto2.webp" class="slider_img_d" id="slider__1" loading="lazy" decoding="async">
+                <img src="/media/demo/kryto3.webp" class="slider_img_d" id="slider__2" loading="lazy" decoding="async">
+            </div>
+            <div class="slider_list"><div class="slider_btn" id="slider_0" onclick="slider(0)"></div><div class="slider_btn" id="slider_1" onclick="slider(1)"></div><div class="slider_btn" id="slider_2" onclick="slider(2)"></div></div>
+        </div>
+        <div class="waviy" style="margin-top: 200px">
+            <span style="--i:1">M</span>
+            <span style="--i:2">e</span>
+            <span style="--i:3">g</span>
+            <span style="--i:4">a</span>
+            <span style="--i:5">S</span>
+            <span style="--i:6">t</span>
+            <span style="--i:7">o</span>
+            <span style="--i:8">r</span>
+            <span style="--i:9">e</span>
+        </div>
+        <div style="margin: 150px;"></div>
+        {% endblock content %}
+        
+
+
+

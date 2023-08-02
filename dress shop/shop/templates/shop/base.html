@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}Мой магазин{% endblock %}</title>
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+<link href="{% static 'css/adaptability.css' %}" rel="stylesheet">
+<link href="{% static 'css/animateText.css' %}" rel="stylesheet">
+<script src="{% static 'js/index.js' %}"></script>
+</head>
+    <body>
+
+        <navbar class="navbar" id="navbar">
+            <div class="left">
+                <a href="/">Главная</a>
+            </div>
+            <div class="nav" id="nav">
+                <div class="center" id="center">
+                    
+                    <div class="category">
+                        <a href="/category/krosovki">Кросовки</a>
+                        <hr class="line">
+                    </div>
+                    <div class="category">
+                        <a href="/category/sviteri">Свитеры</a>
+                        <hr class="line">
+                    </div>
+                    <div class="category">
+                        <a href="/category/rubashki">Рубашки</a>
+                        <hr class="line">
+                    </div>
+                    <div class="category">
+                        <a href="/category/shtany">Штаны</a>
+                        <hr class="line">
+                    </div>
+                    <div class="category">
+                        <a href="/category/futbolki">Футболки</a>
+                        <hr class="line">
+                    </div>
+                </div>
+
+                
+                <div class="right" id="right">
+                    {% if request.user.is_authenticated %}
+                        <a href="/cart" class="cart" id="cart"><?xml version="1.0" encoding="iso-8859-1"?><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" 	 viewBox="0 0 119.88 119.88" class="cart_svg" xml:space="preserve"> <g> 	<path d="M92.652,119.88H28.47c-6.042,0-10.956-4.914-10.956-10.952L8.423,66.246c-3.435-1.703-5.691-5.177-5.691-9.056 		c0-5.669,4.611-10.276,10.276-10.276h93.864c5.665,0,10.276,4.607,10.276,10.276c0,3.317-1.601,6.354-4.278,8.266l-9.337,44.166 		C103.608,114.966,98.694,119.88,92.652,119.88z M13.008,53.653c-1.948,0-3.536,1.588-3.536,3.536c0,1.536,1.11,2.896,2.703,3.3 		c1.242,0.316,2.194,1.316,2.457,2.571l9.547,45.175c0.075,3.018,1.966,4.905,4.291,4.905h64.182c2.325,0,4.217-1.887,4.217-4.212 		l9.71-46.289c0.211-1.018,0.882-1.878,1.808-2.334c1.246-0.605,2.023-1.808,2.023-3.115c0-1.948-1.588-3.536-3.537-3.536H13.008z" 		/> 	<path d="M37.123,100.121c0,1.304-1.067,2.371-2.371,2.371h-0.653c-1.304,0-2.371-1.067-2.371-2.371V72.368 		c0-1.304,1.067-2.371,2.371-2.371h0.653c1.304,0,2.371,1.067,2.371,2.371V100.121z"/> 	<path d="M54.483,100.121c0,1.304-1.067,2.371-2.371,2.371h-0.653c-1.304,0-2.372-1.067-2.372-2.371V72.368 		c0-1.304,1.067-2.371,2.372-2.371h0.653c1.304,0,2.371,1.067,2.371,2.371V100.121z"/> 	<path d="M71.844,100.121c0,1.304-1.067,2.371-2.371,2.371h-0.654c-1.304,0-2.371-1.067-2.371-2.371V72.368 		c0-1.304,1.067-2.371,2.371-2.371h0.654c1.304,0,2.371,1.067,2.371,2.371V100.121z"/> 	<path d="M89.205,100.121c0,1.304-1.067,2.371-2.371,2.371H86.18c-1.304,0-2.372-1.067-2.372-2.371V72.368 		c0-1.304,1.068-2.371,2.372-2.371h0.653c1.304,0,2.371,1.067,2.371,2.371V100.121z"/> 	<path d="M28.027,34.868c2.25-15.669,15.69-27.723,31.98-27.723c16.291,0,29.732,12.055,31.982,27.723c0.328,5.35,7.22,4.494,7.22,0 		C96.915,15.24,80.253,0,60.008,0c-20.244,0-36.907,15.24-39.2,34.868C20.807,40.433,28.115,40.647,28.027,34.868z"/> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </svg> </a><span id="trait">|</span>
+                        <a href="/logout" class="logout">Выйти</a>
+                    {% else %}
+                        <span class="navigation"><a href="/login">Войти</a>
+                    {% endif %}
+                </div>
+            </div>
+
+            <button class="open" onclick="navbar()" id="open"><?xml version="1.0" ?><svg id="Layer_1" style="width: 30px" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css"> 	.st0{fill:#ffffff; width: 30px; height: 30px;} </style><g><g><path class="st0" d="M388.3,201.9h-196c-9.9,0-17.9-9-17.9-20s8-20,17.9-20h196c9.9,0,17.9,9,17.9,20S398.2,201.9,388.3,201.9z"/></g><circle class="st0" cx="131.2" cy="181.9" r="25.5"/><g><path class="st0" d="M388.3,276h-196c-9.9,0-17.9-9-17.9-20s8-20,17.9-20h196c9.9,0,17.9,9,17.9,20S398.2,276,388.3,276z"/></g><circle class="st0" cx="131.2" cy="256" r="25.5"/><g><path class="st0" d="M388.3,350.1h-196c-9.9,0-17.9-9-17.9-20s8-20,17.9-20h196c9.9,0,17.9,9,17.9,20S398.2,350.1,388.3,350.1z"/></g><circle class="st0" cx="131.2" cy="330.1" r="25.5"/></g></svg></button>
+        </navbar>
+
+        {% block content %}{% endblock content %}
+        
+        <div style="margin-top: 50px"></div>
+
+    </body>
+</html>

@@ -1,0 +1,43 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% block title %}Корзина{% endblock %}
+{% block content %}
+
+<div class="basket">
+    {% if error %}
+        <h1 style="color: rgb(0, 0, 0)">Корзина пустая</h1>
+    {% else %}
+        <form method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Очистить корзину" class="clear"> <a href="/sales" class="clear" style="color: black;">Заказать</a>    
+        </form>
+    {% endif %}
+    {% for item in basket %}    
+    <div id="prodictID_{{ item.basket.id }}" class="basket_product">
+        <img src="{{ item.basket.image.url }}" width="150px">
+        <div class="child">
+            <p>Название: {{ item.basket.name }}</p>
+            <p>Цена: <span id="price_{{ item.basket.id }}">{{ item.basket.price }}</span>руб.</p>
+            <p>Количество: {{ item.count }}</p>
+            <p>Общая цена: <span id="total_price_{{ item.basket.id }}">{{ item.price }}руб.</span></p>
+
+            
+    
+                
+            <div class="child_grid">
+                <div class="product_{{ item.basket.id }} number" onclick="price(this)">
+                    <button class="number-minus" type="button" onclick="this.nextElementSibling.stepDown(); this.nextElementSibling.onchange();">-</button>
+                    <input type="number" min="1" value="{{ item.count }}" max="20" readonly id="i_{{ item.basket.id }}">
+                    <button class="number-plus" type="button" onclick="this.previousElementSibling.stepUp(); this.previousElementSibling.onchange();">+</button>
+                </div>
+
+                <button class="{{ item.basket.id }} update" onclick="update(this)">Обновить</button>
+                    <a href="/product/{{ item.basket.id }}">Посмотреть</a>
+                    <a href="delete/product={{ item.basket.id }}">Удалить из корзины</a>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+{% endblock content %}

@@ -1,0 +1,50 @@
+{% extends "shop/base.html" %}
+    {% load static %}
+    {% block title %} {{ product.name }} {% endblock %}
+        {% block content %}
+        <div class="item">
+            <div class="item_title">
+                <h1 class="item_title_text">{{ product.name }}</h1>
+            </div>
+
+            <div class="item_content">
+                <div class="item_img">
+                    <img src="{{ product.image.url }}" class="item_i">
+                </div>
+                <div class="item_context">
+                    
+                    {% if product.description|safe == '<p>&nbsp; &nbsp;</p>' %}
+
+                    {% else %}
+                    <div class="item_info">
+                        <h2>Описание:</h2>
+                        <p>{{ product.description|safe }}</p>
+                    </div>
+                    {% endif %}
+
+                    <div  class="item_info">
+                        <h2>Состав:</h2>
+                        <p>{{ product.characteristic|safe }}</p>
+                    </div>
+                    <p class="item_info">
+                        Цена: <span id="price_{{ product.id }}">{{ product.price }}</span>руб.    </p>
+
+                        <div class="product_{{ product.id }} number item_info" onclick="price(this)">
+                            <button class="number-minus" type="button" onclick="this.nextElementSibling.stepDown(); this.nextElementSibling.onchange();">-</button>
+                            <input type="number" min="1" value="1" max="20" readonly id="i_{{ product.id }}">
+                            <button class="number-plus" type="button" onclick="this.previousElementSibling.stepUp(); this.previousElementSibling.onchange();">+</button>
+                        </div>
+
+                    <button  onclick="add(this)" class="{{ product.id }} {{ slug_name }} buy" id="total_price_{{ product.id }}">
+                        {{ product.price }}руб.
+                    </button>
+
+                    
+
+                </div>
+            </div>
+        </div>
+        {% endblock content %}
+
+
+

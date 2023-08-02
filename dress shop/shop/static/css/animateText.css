@@ -1,0 +1,28 @@
+.waviy {
+  position: relative;
+  font-size: 100%;
+  text-align: center;
+  height: 100%;
+}
+.waviy span {
+  font-size: calc(100vw/9);
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  animation: waviy 2s infinite;
+  animation-delay: calc(.2s * var(--i));
+  
+}
+@keyframes waviy {
+  0%,40%,100% {
+    color: #fff;
+    transform: translateY(0);
+    box-shadow: none
+  }
+  20% {
+    color: rgb(2, 128, 102);
+    transform: translateY(-20px);
+    box-shadow: 0em 0.05em 0px rgba(0, 0, 0, 0.308);
+    border-radius: 10px;
+  }
+}

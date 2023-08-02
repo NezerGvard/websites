@@ -1,0 +1,36 @@
+{% extends "shop/base.html" %}
+    {% load static %}
+    {% block title %} {{ name_category }} {% endblock %}
+        {% block content %}
+        <div class="slider">
+            
+            <div class="slider_block">
+                <img src="/media/demo/kryto1.webp" class="slider_img" id="slider__0" loading="lazy" decoding="async">
+                <img src="/media/demo/kryto2.webp" class="slider_img_d" id="slider__1" loading="lazy" decoding="async">
+                <img src="/media/demo/kryto3.webp" class="slider_img_d" id="slider__2" loading="lazy" decoding="async">
+            </div>
+            <div class="slider_list"><div class="slider_btn" id="slider_0" onclick="slider(0)"></div><div class="slider_btn" id="slider_1" onclick="slider(1)"></div><div class="slider_btn" id="slider_2" onclick="slider(2)"></div></div>
+        </div>
+            <div class="products">
+                {% for item in product %}
+                    <div id="prodictID_{{ item.id }}" class="blank" id="{{ item.id }}" o>
+                        <div class="blank_img">
+                        <img src="{{ item.image.url }}" loading="layzy" class="product_image">
+                        </div>
+                        <div class="blank_text">
+                            <p class="a_text blank_line">{{ item.name }}</p>
+                            <p class="a_text" style="border: none;">{{ item.price }}руб</p>
+                        </div>
+                        <div class="blank_icon">
+                            <a href="/category/{{ slug }}/add/cart/product={{ item.id }}&count=1" class="a_text"><p style="display: inline-block;">В корзину</p></a>
+                            <a href="/product/{{ item.id }}" class="a_text" style="border-right: none"><p style="display: inline-block;">Посмотреть</p> </a>
+                        </div>
+                    </div>
+                {% endfor %}
+                
+            </div>
+        
+        {% endblock content %}
+
+
+
