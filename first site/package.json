@@ -1,9 +1,0 @@
-{
-  "devDependencies": {
-    "tailwindcss": "^3.1.2"
-  },
-  "dependencies": {
-    "assert": "^2.0.0",
-    "python-bridge": "^1.1.0"
-  }
-}
